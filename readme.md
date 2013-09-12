@@ -8,7 +8,7 @@ cp -ri ./ ../backup && \
 
 ack-grep '[&lt;title>.*КИТ.*|.*КИТ.*&lt;\/title>]' --type=html ./ -l | \
 
-xargs perl -i -pe 's/КИТ/ШРИ/g while m/[&lt;title>.*КИТ.*|.*КИТ.*&lt;\/title>]/g;'
+xargs perl -e 's/КИТ/ШРИ/g while m/[&lt;title>.*КИТ.*|.*КИТ.*&lt;\/title>]/g;'
 
 
 Восстановить файлы из бэкапа: 
