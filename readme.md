@@ -23,3 +23,10 @@ ack-grep '[&lt;title>.*КИТ.*|.*КИТ.*&lt;\/title>]' --type=html ./ -l | \
 
 xargs perl -i~ -e 's/КИТ/ШРИ/g while m/[&lt;title>.*КИТ.*|.*КИТ.*&lt;\/title>]/g;'
 
+=====
+
+Последний вариант с многострочной заменой: 
+
+find . -type f -iname '*.html' -print0 | \ 
+
+xargs -0 perl -i.bak -0777 -npe 's/КИТ/ШРИ/g while /&lt;title>(.*?)&lt;\/title>/gs'
